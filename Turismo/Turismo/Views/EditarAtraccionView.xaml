@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Turismo.Views.EditarAtraccionView" Title="Editar atracción">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="20">
+        <StackLayout.Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+        </StackLayout.Style>
+        <Label Text="Nombre:"></Label>
+        <Entry></Entry>
+        <Label Text="URL de la imagen:"></Label>
+        <Entry></Entry>
+        <Label Text="Ubicación:"></Label>
+        <Entry></Entry>
+        <Label Text="Descripción:"></Label>
+        <Entry></Entry>
+
+    </StackLayout>
+
+</ContentPage>

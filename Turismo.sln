@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turismo.Android", "Turismo\Turismo.Android\Turismo.Android.csproj", "{C372C108-59DA-4FD5-96DB-31553850295B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Turismo", "Turismo\Turismo\Turismo.csproj", "{F08C6860-307C-4F4C-AA03-8F46F97A1AA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C372C108-59DA-4FD5-96DB-31553850295B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C372C108-59DA-4FD5-96DB-31553850295B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C372C108-59DA-4FD5-96DB-31553850295B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C372C108-59DA-4FD5-96DB-31553850295B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C372C108-59DA-4FD5-96DB-31553850295B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C372C108-59DA-4FD5-96DB-31553850295B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F08C6860-307C-4F4C-AA03-8F46F97A1AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08C6860-307C-4F4C-AA03-8F46F97A1AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08C6860-307C-4F4C-AA03-8F46F97A1AA2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F08C6860-307C-4F4C-AA03-8F46F97A1AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08C6860-307C-4F4C-AA03-8F46F97A1AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F08C6860-307C-4F4C-AA03-8F46F97A1AA2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58655350-D1F9-4044-BA8E-2977CA0E5F70}
+	EndGlobalSection
+EndGlobal
