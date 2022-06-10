@@ -1,26 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Turismo.Views.EditarAtraccionView" Title="Editar atracción">
+             x:Class="Turismo.Views.EditarAtraccionView" Title="Editar atracción" Background="gray">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Guardar" ></ToolbarItem>
+        <ToolbarItem Text="Guardar" Command="{Binding GuardarCommand}" ></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <StackLayout Margin="20">
-        <StackLayout.Style>
-            <Style TargetType="Label">
-                <Setter Property="FontSize" Value="20"></Setter>
-            </Style>
-        </StackLayout.Style>
-        <Label Text="Nombre:"></Label>
-        <Entry></Entry>
-        <Label Text="URL de la imagen:"></Label>
-        <Entry></Entry>
-        <Label Text="Ubicación:"></Label>
-        <Entry></Entry>
-        <Label Text="Descripción:"></Label>
-        <Entry></Entry>
+        
+        <Label FontSize="25" TextColor="Cyan" Text="Nombre:"></Label>
+        <Entry Text="{Binding Atracciones.NombreAtraccion}"></Entry>
+
+        <Label FontSize="25" TextColor="Cyan" Text="URL de la imagen:"></Label>
+        <Entry Text="{Binding Atracciones.URLImagen}"></Entry>
+
+        <Label FontSize="25" TextColor="Cyan" Text="Ubicación:"></Label>
+        <Entry Text="{Binding Atracciones.Ubicacion}"></Entry>
+
+        <Label FontSize="25" TextColor="Cyan" Text="Descripción:"></Label>
+        <Entry Text="{Binding Atracciones.Descripcion}"></Entry>
 
     </StackLayout>
 

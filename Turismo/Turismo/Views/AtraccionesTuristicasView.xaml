@@ -9,9 +9,6 @@
         <viewmodels:AtraccionesViewModel x:Name="x"></viewmodels:AtraccionesViewModel> 
     </ContentPage.BindingContext>
     
-    <ContentPage.Resources>
-        
-    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar"  Text="Agregar" ></ToolbarItem>
     </ContentPage.ToolbarItems>
@@ -22,21 +19,24 @@
                 <DataTemplate>
                     <SwipeView>
                         <SwipeView.RightItems>
-                            <SwipeItem BackgroundColor="blue" Text="Editar"></SwipeItem>
-                            <!--Command="{Binding Source={x:Reference x}, Path=EliminarCommand}"-->
+                            <SwipeItem BackgroundColor="blue" Command="{Binding Source={x:Reference x}, Path= EditarCommand}" CommandParameter="{Binding .}" Text="Editar"></SwipeItem>
                             <SwipeItem  BackgroundColor="Green" Clicked="SwipeItem_Clicked"  CommandParameter="{Binding .}" Text="Eliminar"></SwipeItem>
                         </SwipeView.RightItems>
                         <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference x}, Path= MostrarDetallesCommand}" 
+                                      CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="60"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-
-                            <Image Source="{Binding URLImagen}" Grid.Column="0" Margin="3,0,0,0" ></Image>
+                            <Image Grid.Column="0" Margin="5" Source="{Binding URLImagen}"></Image>
                             <Label Grid.Column="1"   Text="{Binding NombreAtraccion}" TextColor="Wheat" FontSize="30"></Label>
                         </Grid>
                     </SwipeView>
-                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

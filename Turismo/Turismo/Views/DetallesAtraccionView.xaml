@@ -1,20 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Turismo.Views.DetallesAtraccionView" Title="Detalles de las atracciones">
+             x:Class="Turismo.Views.DetallesAtraccionView" Title="Detalles de las atracciones" BackgroundColor="DarkBlue">
 
-     <StackLayout>
-        <StackLayout.Style>
-            <Style TargetType="Label">
-                <Setter Property="TextColor" Value="Wheat"></Setter>
-            </Style>
-        </StackLayout.Style>
-
-        <Image  HorizontalOptions="Center" HeightRequest="250" Source="https://cdn.pixabay.com/photo/2013/04/13/18/42/tower-103417_960_720.jpg"></Image>
-        <Label Text="Nombre"></Label>
-        <Label Text="Ubicacion"></Label>
-        <Label Text="Descripcion"></Label>
-
+    <StackLayout Margin="15" >
+        <Label TextColor="Purple"  FontSize="Title" HorizontalOptions="Center" Text="{Binding  NombreAtraccion}"></Label>
+        <Image  HeightRequest="250" Margin="10" Source="{Binding URLImagen}"></Image>
+        
+        <Label TextColor="Gray" Padding="20" FontSize="25" HorizontalOptions="Center" Text="{Binding  Ubicacion}"></Label>
+        <Label TextColor="White" Padding="5" FontSize="25" HorizontalOptions="Center" Text="{Binding  Descripcion}"></Label>
     </StackLayout>
 
 </ContentPage>

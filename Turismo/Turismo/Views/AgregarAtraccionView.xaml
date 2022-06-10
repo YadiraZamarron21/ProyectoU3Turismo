@@ -1,32 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Turismo.Views.AgregarAtraccionView" Title="Agregar atracción">
+             x:Class="Turismo.Views.AgregarAtraccionView" Title="Agregar atracción" Background="gray">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar" ></ToolbarItem>
+        <ToolbarItem Command="{Binding AgregarCommand}" Text="Agregar" ></ToolbarItem>
     </ContentPage.ToolbarItems>
     
     <StackLayout Margin="20">
-        <StackLayout.Style>
-            <Style TargetType="Label">
-                <Setter Property="FontSize" Value="20"></Setter>
-            </Style>
-        </StackLayout.Style>
-        
-        <Label Text="Nombre:"></Label>
+
+        <Label FontSize="25" TextColor="Aqua" Text="Nombre:"></Label>
         <Entry Text="{Binding Atracciones.NombreAtraccion}"></Entry>
-        
-        <Label Text="URL de la imagen:"></Label>
+
+        <Label  FontSize="25" TextColor="Aqua" Text="URL de la imagen:"></Label>
         <Entry Text="{Binding Atracciones.URLImagen}"></Entry>
-        
-        <Label Text="Ubicación:"></Label>
+
+        <Label FontSize="25" TextColor="Aqua" Text="Ubicación:"></Label>
         <Entry Text="{Binding Atracciones.Ubicacion}"></Entry>
-        
-        <Label Text="Descripción:"></Label>
+
+        <Label FontSize="25" TextColor="Aqua" Text="Descripción:"></Label>
         <Entry Text="{Binding Atracciones.Descripcion}"></Entry>
 
-        <Label Text="{Binding Error}" HorizontalOptions="Center" TextColor="red" FontSize="Small"></Label>
+        <Label Text="{Binding Error}" Padding="15" HorizontalOptions="Center" TextColor="red" FontSize="18"></Label>
     </StackLayout>
 
 </ContentPage>

@@ -14,19 +14,23 @@ namespace Turismo.ViewModels
 {
     public class AtraccionesViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public ObservableCollection<AtraccionesTuristicas> Grupo { get; set; } = new ObservableCollection<AtraccionesTuristicas>();
-
         public AtraccionesTuristicas Atracciones { get; set; }
-
         public ICommand CambiarVistaCommand { get; set; }
         public ICommand AgregarCommand { get; set; }
         public ICommand EliminarCommand { get; set; }
+        public ICommand EditarCommand{ get; set; }
+        public ICommand GuardarCommand { get; set; }
         public ICommand MostrarDetallesCommand { get; set; }
-
         public string Error { get; set; }
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+       
+        AgregarAtraccionView vistaAtracccion;
+        DetallesAtraccionView vistaDetalles;
+        EditarAtraccionView vistaEditar;
 
+      
         public AtraccionesViewModel()
         {
             Deserializar();
@@ -34,11 +38,44 @@ namespace Turismo.ViewModels
             AgregarCommand = new Command(Agregar);
             EliminarCommand = new Command<AtraccionesTuristicas>(Eliminar);
             MostrarDetallesCommand = new Command<AtraccionesTuristicas>(MostrarDetalles);
+            EditarCommand= new Command<AtraccionesTuristicas>(Editar);
+            GuardarCommand = new Command(Guardar);
+        
+        }
+
+        private void Guardar(object obj)
+        {
+            Grupo[indice] = Atracciones;
+            Serializar();
+            App.Current.MainPage.Navigation.PopToRootAsync();
+        }
+
+        int indice; 
+        private async void Editar(AtraccionesTuristicas obj)
+        {
+            //Clonar
+            indice = Grupo.IndexOf(obj);
+            Atracciones = new AtraccionesTuristicas
+            {
+                NombreAtraccion = obj.NombreAtraccion,
+                URLImagen = obj.URLImagen,
+                Ubicacion = obj.Ubicacion,
+                Descripcion = obj.Descripcion
+            };
+            vistaEditar = new EditarAtraccionView()
+            {
+                BindingContext = this
+            };
+            await App.Current.MainPage.Navigation.PushAsync(vistaEditar);
         }
 
         private void MostrarDetalles(AtraccionesTuristicas obj)
         {
-            throw new NotImplementedException();
+          vistaDetalles= new DetallesAtraccionView()
+          {
+              BindingContext=obj
+          };
+            App.Current.MainPage.Navigation.PushAsync(vistaDetalles);
         }
 
         private void Eliminar(AtraccionesTuristicas a)
@@ -63,23 +100,7 @@ namespace Turismo.ViewModels
                 Application.Current.MainPage.Navigation.PopToRootAsync();
             }
         }
-        void Serializar()
-        {
-            var file = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "grupo.json";
-            File.WriteAllText( file,JsonConvert.SerializeObject(Grupo));
-        }
-        void Deserializar()
-        {
-            var file = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "grupo.json";
-            if (File.Exists(file))
-            {
-                Grupo = JsonConvert.DeserializeObject<ObservableCollection<AtraccionesTuristicas>>(File.ReadAllText(file));
-            }
-        }
-           
-        
-        AgregarAtraccionView vistaAtracccion;
-
+  
         private void Agregar()
         {
             Error = "";
@@ -107,6 +128,7 @@ namespace Turismo.ViewModels
                     CambiarVista("Ver");
                     Serializar();
                 } 
+
                 Change();
             }
         }
@@ -116,6 +138,18 @@ namespace Turismo.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(""));
         }
 
-
+        void Serializar()
+        {
+            var file = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "grupo.json";
+            File.WriteAllText( file,JsonConvert.SerializeObject(Grupo));
+        }
+        void Deserializar()
+        {
+            var file = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "grupo.json";
+            if (File.Exists(file))
+            {
+                Grupo = JsonConvert.DeserializeObject<ObservableCollection<AtraccionesTuristicas>>(File.ReadAllText(file));
+            }
+        }
     }
 }
